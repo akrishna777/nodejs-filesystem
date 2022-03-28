@@ -22,17 +22,14 @@ fs.appendFile(`./TimeContent/${dateTime}`, `${timeStamp}`, 'utf-8', function (
   }
 })
 
-app.get('/getFiles', function (req, res) {
-  fs.readdir('./TimeContent', (err, files) => {
-    if (err) console.log(err)
-    else {
+fs.readdir('./TimeContent', (err, files) => {
+  if (err) console.log(err)
+  else {
+    app.get('/', function (req, res) {
       res.send(files)
-      console.log('\nCurrent directory filenames:')
-      files.forEach((file) => {
-        console.log(file)
-      })
-    }
-  })
+    })
+  }
+  console.log(files)
 })
 
 app.listen(PORT, () => {
