@@ -22,7 +22,7 @@ fs.appendFile(`./TimeContent/${dateTime}`, `${timeStamp}`, 'utf-8', function (
   }
 })
 
-app.get('/', function (req, res) {
+app.get('/getFiles', function (req, res) {
   fs.readdir('./TimeContent', (err, files) => {
     if (err) console.log(err)
     else {
