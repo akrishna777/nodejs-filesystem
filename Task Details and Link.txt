@@ -1,0 +1,6 @@
+Heroku URL: https://nodejs-fs-txtcreator.herokuapp.com/
+Github URL: https://github.com/akrishna777/nodejs-filesystem
+
+API endpoint: 
+1. "/" -> This will list all the filenames present inside the folder "TimeContent" in a JSON format.
+
