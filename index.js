@@ -2,7 +2,6 @@ const { time } = require('console')
 const { text } = require('express')
 const express = require('express')
 const app = express()
-const PORT = 3456
 const fs = require('fs')
 
 let timeStamp = new Date()
@@ -12,9 +11,7 @@ let minutes = timeStamp.getMinutes()
 let seconds = timeStamp.getSeconds()
 let dateTime = `${date} - ${hours};${minutes};${seconds}`
 
-fs.appendFile(`./TimeContent/${dateTime}`, `${timeStamp}`, 'utf-8', function (
-  err,
-) {
+fs.appendFile(`./TimeContent/${dateTime}`, `${timeStamp}`, function (err) {
   if (err) {
     console.log(err)
   } else {
@@ -32,6 +29,8 @@ fs.readdir('./TimeContent', (err, files) => {
   console.log(files)
 })
 
+const PORT = process.env.PORT || 4500
 app.listen(PORT, () => {
-  console.log('App is running on port:', PORT)
+  console.log(`App listening on port ${PORT}`)
+  console.log('Press Ctrl+C to quit.')
 })
